@@ -4,11 +4,13 @@ import { auth, signIn, signOut } from '@/auth'
 
 const Navbar = async () => {
     const session = await auth();
+
     return (
         <header className='px-5 py-3 bg-white font-work-sans shadow-sm'>
             <nav className='flex justify-between items-center'>
                 <Link href={'/'}>
-                    <p className='text-xl'>Z9NPOSTS</p>
+                    {/* <img src='/logo.png' alt='logo' className='h-10 cursor-pointer' /> */}
+                    <p className='text-2xl font-bold'>Z9NPOSTS</p>
                 </Link>
                 <div className='flex items-center gap-5'>
                     {
@@ -18,7 +20,7 @@ const Navbar = async () => {
                                 <Link href={'/startup/create'}>
                                     <span>New</span>
                                 </Link>
-                                <Link href={`/user/${session?.user?.id}`}>
+                                <Link href={`/user/${session?.id}`}>
                                     <span>{session?.user?.name}</span>
                                 </Link>
                                 <form action={async () => {
